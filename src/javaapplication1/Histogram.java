@@ -4,20 +4,20 @@ package javaapplication1;
 import java.util.HashMap;
 
 
-public class Histogram <T>{
+public class Histogram {
 
-    private final T[] vector;
+    private final int[] vector;
 
-    public Histogram(T[] vector) {
+    public Histogram(int[] vector) {
         this.vector = vector;
     }
 
-    public T[] getVector() {
+    public int[] getVector() {
         return vector;
     }
     
-    public HashMap<T,Integer> getHistogram(){
-        HashMap<T,Integer> histograma = new HashMap<>();
+    public HashMap<Integer,Integer> getHistogram(){
+        HashMap<Integer,Integer> histograma = new HashMap<>();
         for (int i = 0; i < vector.length; i++) {
             if(!histograma.containsKey(vector[i])){
                 histograma.put(vector[i],1);
