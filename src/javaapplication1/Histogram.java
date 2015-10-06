@@ -2,29 +2,23 @@
 package javaapplication1;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 
 public class Histogram <T>{
 
-    private final T[] vector;
-
-    public Histogram(T[] vector) {
-        this.vector = vector;
-    }
-
-    public T[] getVector() {
-        return vector;
+    private final Map<T, Integer> map = new HashMap<>();
+    
+    public Integer get(Object key){
+        return map.get(key);
     }
     
-    public HashMap<T,Integer> getHistogram(){
-        HashMap<T,Integer> histograma = new HashMap<>();
-        for (int i = 0; i < vector.length; i++) {
-            if(!histograma.containsKey(vector[i])){
-                histograma.put(vector[i],1);
-            }else{
-                histograma.put(vector[i],histograma.get(vector[i])+1);
-            }
-        }
-        return histograma;
+    public Set<T> keySet(){
+        return map.keySet();
+    }
+    
+    public void increment(T key){
+        map.put(key, map.containsKey(key) ? map.get(key)+1:1);
     }
 }
